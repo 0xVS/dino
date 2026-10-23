@@ -1,0 +1,31 @@
+function love.load()
+    rect = {}
+    rect.mode = "line"
+    rect.x = 100
+    rect.y = 50
+    rect.width = 70
+    rect.height = 90
+
+    rect.speed_h = 500 
+    rect.speed_v = 250
+end
+
+function love.update(dt)
+    if love.keyboard.isDown("right") then
+        rect.x = rect.x + rect.speed_h * dt
+    elseif love.keyboard.isDown("left") then
+        rect.x = rect.x - rect.speed_h * dt
+    end
+
+    if love.keyboard.isDown("up") then
+        rect.y = rect.y - rect.speed_v * dt
+    elseif love.keyboard.isDown("down") then
+        rect.y = rect.y + rect.speed_v * dt
+    end
+end
+
+function love.draw()
+    -- rectangle(FilleMode, x, y, width, height)
+    -- love.graphics.rectangle("line", x, y, 200, 150)
+    love.graphics.rectangle(rect.mode, rect.x, rect.y, rect.width, rect.height)
+end
