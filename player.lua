@@ -1,7 +1,7 @@
 local groundY = 400
 local scrollSpeed = 300
-local jumpSpeed = -350
-local gravity = 1000
+local jumpSpeed = -1000
+local gravity = 3600
 
 Player = Entity:extend()
 
@@ -48,7 +48,7 @@ function Player:check_collision(e)
     return self.super.check_collision(self, e)
 end
 
-function Player:keypressed(dt)
+function Player:keypressed()
     if love.keyboard.isDown("escape") then
         love.event.quit()
     end
